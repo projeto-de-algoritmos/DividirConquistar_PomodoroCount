@@ -1,45 +1,59 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+## Pomodoro Count
 
 Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
+ - Dividir e Conquistar
 
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 17/0114139  |  Samuel Victor Castro Macêdo |
+| 19/0033427  |  Pedro Henrique Caldeira de Moraes|
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+Pomodouro Count é um programa para gerenciamento do tempo.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+
+
+
+
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
+**Linguagem**: Python<br>
+**Framework**: Flask<br>
+
+**Dependências**
+- Python 3.9.0 ou superior
+- Flask 3.0 ou superior
+- instalar as bibliotecas necessárias.
+  
+**Execução**
+- Clone o projeto (ou baixe):
+  
+  ```shell
+  git clone https://github.com/projeto-de-algoritmos/DividirConquistar_PomodoroCount
+  && cd DividirConquistar_PomodoroCount
+
+  ```
+- Instale o framework necessário:
+    ``` 
+    pip install flask 
+    
+    ```
+ 
+ - Execute o arquivo principal ```app.py```:
+  
+    ```shell
+    cd Scripts
+    python3 app.py 
+    ```
+
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
 
 
 
-
+## Apresentação
+[Link Apresentação]()
