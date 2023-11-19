@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #800080, #FF0000);
+            color: white;
+            font-family: 'Helvetica', sans-serif;
+        }
+        
+        #timer-container {
+            text-align: center;
+        }
+
+        #timer {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        #settings-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        input {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+
+        #buttons-container {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        button {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        function updateTimer() {
+            var timerSeconds = parseInt(document.getElementById("timer_seconds").innerText);
+            var isBreak = JSON.parse(document.getElementById("isBreak").innerText);
+            var timerDisplay = document.getElementById("timer");
+
+            if (timerSeconds > 0) {
+                timerSeconds -= 1;
+                var minutes = Math.floor(timerSeconds / 60);
+                var seconds = timerSeconds % 60;
+                timerDisplay.innerHTML = ("0" + minutes).slice(-2) + ":" + ("0" + seconds).slice(-2);
+                setTimeout(function() { updateTimer(); }, 1000);
+            } else {
+                if (isBreak) {
+                    alert("Parece que está na hora de voltar ao trabalho!");
+                    timerSeconds = parseInt(document.getElementById("workTime").value) * 60;
+                } else {
+                    alert("É hora de fazer uma pausa!");
+                    timerSeconds = parseInt(document.getElementById("breakTime").value) * 60;
+                }
+
+                isBreak = !isBreak;
+                document.getElementById("isBreak").innerText = isBreak;
+                timerDisplay.innerHTML = ("0" + Math.floor(timerSeconds / 60)).slice(-2) + ":" + ("0" + (timerSeconds % 60)).slice(-2);
+            }
+        }
+
+        function startTimer() {
+            updateTimer();
+            document.getElementById("startButton").disabled = true;
+        }
+
+        function resetTimer() {
+            var workTime = parseInt(document.getElementById("workTime").value) * 60;
+            var breakTime = parseInt(document.getElementById("breakTime").value) * 60;
+
+            document.getElementById("timer_seconds").innerText = workTime;
+            document.getElementById("isBreak").innerText = "false";
+            document.getElementById("timer").innerHTML = ("0" + Math.floor(workTime / 60)).slice(-2) + ":" + ("0" + (workTime % 60)).slice(-2);
+            document.getElementById("startButton").disabled = false;
+        }
+    </script>
+</head>
+<body>
+    <div id="timer-container">
+        <h1>Pomodoro Timer</h1>
+        <p id="timer_seconds" style="display: none;">{{ work_time }}</p>
+        <p id="timer">{{ "%02d:%02d" % (work_time // 60, work_time % 60) }}</p>
+        <div id="settings-container">
+            <label for="workTime">Tempo de Trabalho (min): </label>
+            <input type="number" id="workTime" min="1" value="{{ work_time // 60 }}" />
+            <label for="breakTime">Tempo de Descanso (min): </label>
+            <input type="number" id="breakTime" min="1" value="{{ break_time // 60 }}" />
+        </div>
+        <div id="buttons-container">
+            <button onclick="startTimer()" id="startButton">Iniciar</button>
+            <button onclick="resetTimer()">Reiniciar</button>
+        </div>
+    </div>
+</body>
+</html>
