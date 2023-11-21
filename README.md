@@ -18,13 +18,13 @@ Você está pronto para transformar a forma como aborda suas tarefas diárias? A
 
 Deixe para trás a procrastinação e abrace a eficácia! Seja você um estudante, profissional ou entusiasta.
 ## Screenshots
-<img src="imagens/pomodoro1.png" width="300" height="400">
+<img src="imagens/pomodoro1.png">
 
-<img src="imagens/pomodoro2.png" width="300" height="400">
+<img src="imagens/pomodoro2.png"> 
 
-<img src="imagens/pomodoro3.png" width="300" height="400">
+<img src="imagens/pomodoro3.png"> 
 
-<img src="imagens/pomodoro4.png" width="300" height="400">
+<img src="imagens/pomodoro4.png">
 
 
 
