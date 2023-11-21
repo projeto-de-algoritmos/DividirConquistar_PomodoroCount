@@ -11,10 +11,10 @@ class PomodoroGUI:
 
         self.work_label = tk.Label(master, text="Tempo de trabalho (minutos):")
         self.work_entry = tk.Entry(master)
-        self.work_entry.insert(0, "25")  # Configuração padrão para 25 minutos
+        self.work_entry.insert(0, "25")
         self.break_label = tk.Label(master, text="Tempo de descanso (minutos):")
         self.break_entry = tk.Entry(master)
-        self.break_entry.insert(0, "5")  # Configuração padrão para 5 minutos
+        self.break_entry.insert(0, "5")
 
         self.start_button = tk.Button(master, text="Iniciar", command=self.start_button_click)
         self.stop_button = tk.Button(master, text="Parar", command=self.stop_button_click)
@@ -22,7 +22,6 @@ class PomodoroGUI:
         self.timer_label = tk.Label(master, text="", font=("Helvetica", 16))
         self.repetitions_label = tk.Label(master, text="Repetições: 0", font=("Helvetica", 12))
 
-        # Configurar layout usando grid
         self.work_label.grid(row=0, column=0, sticky="w", padx=10, pady=10)
         self.work_entry.grid(row=0, column=1, sticky="w", padx=10, pady=10)
         self.break_label.grid(row=1, column=0, sticky="w", padx=10, pady=10)
@@ -55,6 +54,5 @@ class PomodoroGUI:
 if __name__ == "__main__":
     root = tk.Tk()
     app = PomodoroGUI(root)
-    # Centralizar a janela na tela
     root.eval('tk::PlaceWindow %s center' % root.winfo_pathname(root.winfo_id()))
     root.mainloop()

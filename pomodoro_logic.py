@@ -22,7 +22,7 @@ class PomodoroLogic:
                 return
 
             self.timer_running = True
-            self.time_left = self.work_time * 60  # Inicializar com o tempo de trabalho
+            self.time_left = self.work_time * 60
             self.update_timer()
 
     def stop_timer(self):
