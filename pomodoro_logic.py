@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, messagebox
+from tkinter import messagebox
 
 class PomodoroLogic:
     def __init__(self, master, update_callback, confirmation_callback):
@@ -22,7 +22,7 @@ class PomodoroLogic:
                 return
 
             self.timer_running = True
-            self.time_left = self.work_time * 60
+            self.time_left = self.work_time * 60  # Inicializar com o tempo de trabalho
             self.update_timer()
 
     def stop_timer(self):
@@ -52,20 +52,3 @@ class PomodoroLogic:
 
     def update_repetitions(self):
         self.repetitions += 1
-
-
-class PomodoroGUI:
-    def __init__(self, master):
-        self.master = master
-        self.master.title("Pomodoro Timer")
-
-        self.setup_styles()
-
-        self.logic = PomodoroLogic(master, self.update_timer_label, self.show_confirmation)
-
-        self.work_label = tk.Label(master, text="Tempo de trabalho (minutos):", style="Label.TLabel")
-        self.work_entry = tk.Entry(master, style="Entry.TEntry")
-        self.work_entry.insert(0, "25")  # Configuração padrão para 25 minutos
-        self.break_label = tk.Label(master, text="Tempo de descanso (minutos):", style="Label.TLabel")
-        self.break_entry = tk.Entry(master, style="Entry.TEntry")
-        self.break_
